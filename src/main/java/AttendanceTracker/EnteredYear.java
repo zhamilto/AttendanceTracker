@@ -7,7 +7,7 @@ public class EnteredYear {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter the year: ");
         int userEnteredYear = scan.nextInt();
-        while(userEnteredYear < 0 || userEnteredYear < 2010 || userEnteredYear > 2023){
+        while( userEnteredYear < 2010 || userEnteredYear > 2023){
             System.out.println("Please enter a valid year: ");
             userEnteredYear = scan.nextInt();
         }
