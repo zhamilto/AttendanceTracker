@@ -40,14 +40,6 @@ public class App {
     
     }
 
-    // public static String selectingClass(List classes) {
-    //    String course = " ";
-    //     while(classes.contains(course) == false){
-    //         Scanner myObj = new Scanner(System.in);
-    //         System.out.println("\nSelect a course: ");
-    //         course = myObj.nextLine();
-    //     }
-    //     return course;
 
        public static String selectingClass(List classes) {
         Scanner myObj = new Scanner(System.in);
@@ -56,7 +48,7 @@ public class App {
 
         while(classes.contains(course) == false){
             myObj = new Scanner(System.in);
-            System.out.println("\nNot a valid course, Select a course: ");
+            System.out.println("\nInvalid course, Select a course: ");
             course = myObj.nextLine();
         }
         return course;
