@@ -20,7 +20,7 @@ public class SemesterOptions {
             while (true) {
                 if (input.hasNextInt()) {
                     choice = input.nextInt();
-                    if (choice >= 1 || choice <= semesters.size()) { 
+                    if (choice >= 1 && choice <= semesters.size()) { 
                         return choice; 
                     } else {
                         System.out.println("Invalid input. ");
