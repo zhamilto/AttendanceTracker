@@ -18,8 +18,8 @@ public class App {
         List<String> fall = new ArrayList<>();
         fall.add("CPSC 1724");
         fall.add("CPSC 2720");
-        fall.add("CPSC 2720");
-        System.out.println("Courses offered in the Fall\n" );
+        fall.add("CPSC 3140");
+        System.out.println("\nCourses offered in the Fall");
         for(String val : fall){
             System.out.println(val + " ");
         }
@@ -28,25 +28,25 @@ public class App {
         spring.add("CPSC 2735");
         spring.add("CPSC 2120");
         spring.add("CPSC 3060");
-        System.out.println("Courses offered in the Spring\n" );
+        System.out.println("\nCourses offered in the Spring" );
         for(String val2 : spring){
             System.out.println(val2 + " ");
         }
 
+        System.out.println("\nChoose from the courses listed for Fall" );
         String selectedClass = selectingClass(fall);
         System.out.println(selectedClass);
 
     
     }
 
-    private static String selectingClass(List classes) {
+    public static String selectingClass(List classes) {
        String course = " ";
         while(classes.contains(course) == false){
             Scanner myObj = new Scanner(System.in);
-            System.out.println("Select a course: ");
+            System.out.println("\nSelect a course: ");
             course = myObj.nextLine();
         }
-
         return course;
     }
 }
