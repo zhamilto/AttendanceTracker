@@ -12,6 +12,5 @@ public class App {
         System.out.println(new App().getGreeting());
        int userchoice = AppHelper.yearOption();
         int year = AppHelper.yearFromChoice(userchoice);
-        System.out.println(year);
     }
 }
