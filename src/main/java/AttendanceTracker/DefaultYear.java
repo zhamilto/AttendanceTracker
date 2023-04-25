@@ -1,14 +1,12 @@
 package AttendanceTracker;
 
-import java.time.Year;
+import java.util.Calendar;
 
 public class DefaultYear {
 
-
-
     static int defaultYear(){
-        Year tempYear = Year.now();
-        int currentYear = Integer.parseInt(String.valueOf(tempYear));
+        Calendar calendar = Calendar.getInstance();
+        int currentYear = calendar.get(Calendar.YEAR);
         System.out.println("The current year is "+ currentYear);
         return currentYear;
     }
