@@ -21,26 +21,21 @@ public class SemesterOptions {
 
         System.out.println("Please select one of the previous semesters by typing the corresponding number.");
         int choice = 0;
-        try {
-            while (true) {
-                if (input.hasNextInt()) {
-                    choice = input.nextInt();
-                    if (choice >= 1 && choice <= semesters.size()) { 
-                        return choice; 
-                    } else {
-                        System.out.println("Invalid input. ");
-                        displaySemestersFromMap(semesters);
-                    }
+        while (true) {
+            if (input.hasNextInt()) {
+                choice = input.nextInt();
+                if (choice >= 1 && choice <= semesters.size()) { 
+                    return choice; 
                 } else {
-                    System.out.println("Invalid input. Please enter an integer");
+                    System.out.println("Invalid input. ");
                     displaySemestersFromMap(semesters);
-                    input.next();
                 }
-            }   
-         }
-        finally {
-            input.close(); 
-        }
+            } else {
+                System.out.println("Invalid input. Please enter an integer");
+                displaySemestersFromMap(semesters);
+                input.next();
+            }
+        }   
     }
 
     /*
