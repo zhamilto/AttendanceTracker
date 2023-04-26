@@ -3,6 +3,7 @@ package AttendanceTracker;
 import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.*;
 
 
 
@@ -19,8 +20,7 @@ public class YearOptions {
         }
     }
     static int defaultYear(){
-        Calendar calendar = Calendar.getInstance();
-        int currentYear = calendar.get(Calendar.YEAR);
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         System.out.println("The current year is "+ currentYear);
         return currentYear;
     }
