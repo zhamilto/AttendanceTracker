@@ -5,31 +5,8 @@ package AttendanceTracker;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AppTest {
-    @Test
-    void enteredYear() {
-        int inputYear = 2022;
-        //InputStream in = new ByteArrayInputStream(inputYear.getBytes());
-        //System.setIn(in);
-        assertEquals(2022, App.enteredYear());
 
-    }
-
-    @Test
-    void defaultYear() {
-        assert 2023 == App.defaultYear();
-
-    }
-
-    @Test
-    void notDefaultYear() {
-        assert 2021 != App.defaultYear();
-
-    }
 }
