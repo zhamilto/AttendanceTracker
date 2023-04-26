@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.HashMap;
 
 public class SemesterOptionsTest {
-    private HashMap<Integer, String> testsemesters = new HashMap<Integer,String>() {{
+    private HashMap<Integer, String> mockSemesters = new HashMap<Integer,String>() {{
         put(1, "Spring 2020");
         put(2, "Summer 2020");
         put(3, "Fall 2020");
@@ -17,7 +17,7 @@ public class SemesterOptionsTest {
 
     @Test void selectSemesterReturnsAtKey() {
         int choice1 = 1;
-        String actual = SemesterOptions.selectSemester(testsemesters, choice1);
+        String actual = SemesterOptions.selectSemester(mockSemesters, choice1);
 
         assertNotEquals("Summer 2020", actual);
         assertFalse(actual.isBlank());
@@ -26,7 +26,7 @@ public class SemesterOptionsTest {
     } 
 
     @Test void selectDefaultSemesterRetunsLastSemester() {
-        String actual = SemesterOptions.selectDefaultSemester(testsemesters);
+        String actual = SemesterOptions.selectDefaultSemester(mockSemesters);
         assertFalse(actual.isEmpty());
         assertFalse(actual.isBlank());
         assertNotEquals("Spring 2020", actual);
