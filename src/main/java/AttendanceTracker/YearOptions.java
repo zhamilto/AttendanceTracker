@@ -28,7 +28,6 @@ public class YearOptions {
     static int enteredYear() {
         Scanner scanner = new Scanner(System.in);
         int userEnteredYear;
-        try{
             do {
                 System.out.print("Enter the year: ");
                 while (!scanner.hasNextInt()) {
@@ -40,9 +39,7 @@ public class YearOptions {
             } while (userEnteredYear  < 2010 || userEnteredYear > 2023);
             System.out.println("The entered year is " + userEnteredYear);
             return userEnteredYear;
-        } catch (InputMismatchException e) {
-            throw new RuntimeException(e);
         }
     }
 
-}
+
