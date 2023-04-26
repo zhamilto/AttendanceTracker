@@ -3,7 +3,8 @@
  */
 package AttendanceTracker;
 
-import static AttendanceTracker.UserChooseYear.userChooseYearStyle;
+
+import static AttendanceTracker.YearOptions.userChooseYearStyle;
 
 public class App {
 
