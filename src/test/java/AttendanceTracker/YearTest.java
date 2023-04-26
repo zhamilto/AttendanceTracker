@@ -12,9 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class YearTest {
     @Test
     void enteredYear() {
-        String inputCourse = "2022";
-        int year = Integer.parseInt(inputCourse);
-        InputStream in = new ByteArrayInputStream(inputCourse.getBytes());
+        String inputYear = "2022";
+        int year = Integer.parseInt(inputYear);
+        InputStream in = new ByteArrayInputStream(inputYear.getBytes());
         System.setIn(in);
         assertEquals(year, YearOptions.enteredYear());
     }
