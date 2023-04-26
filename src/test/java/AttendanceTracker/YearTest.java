@@ -2,27 +2,51 @@ package AttendanceTracker;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Calendar;
+import java.util.InputMismatchException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class YearTest {
     @Test
     void enteredYear() {
-        int inputYear = 2022;
-        //InputStream in = new ByteArrayInputStream(inputYear.getBytes());
-        //System.setIn(in);
-        assertEquals(2022, EnteredYear.enteredYear());
-
+        String inputCourse = "2022";
+        int year = Integer.parseInt(inputCourse);
+        InputStream in = new ByteArrayInputStream(inputCourse.getBytes());
+        System.setIn(in);
+        assertEquals(year, YearOptions.enteredYear());
     }
+
 
     @Test
     void defaultYear() {
-        assert 2023 == DefaultYear.defaultYear();
+        Calendar calendar = Calendar.getInstance();
+        int currentYear = calendar.get(Calendar.YEAR);
+        assertEquals(currentYear,YearOptions.defaultYear());
 
     }
 
     @Test
     void notDefaultYear() {
-        assert 2021 != DefaultYear.defaultYear();
+        Calendar calendar = Calendar.getInstance();
+        int currentYear = calendar.get(Calendar.YEAR);
+        assertNotEquals(2021,YearOptions.defaultYear());
 
     }
+
+    @Test
+    public void whenExceptionThrown_thenAssertionSucceeds() {
+        Exception exception = assertThrows(NumberFormatException.class, () -> {
+            Integer.parseInt("q");
+        });
+
+        String expectedMessage = "For input string";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
+
 }
