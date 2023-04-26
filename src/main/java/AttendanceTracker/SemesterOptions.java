@@ -9,7 +9,7 @@ public class SemesterOptions {
     public static void displaySemestersFromMap(HashMap<Integer, String> semesters) { 
         System.out.println("Semesters available:");
         for(int i = 1; i <= semesters.size(); i++) { 
-            System.out.print(i +".) "+ semesters.get(i) );
+            System.out.println(i +".) "+ semesters.get(i) );
         }
     }
 
