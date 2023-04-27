@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.Scanner;
 
 
-import static AttendanceTracker.YearOptions.userChooseYearStyle;
-
 public class App {
 
     public static void main(String[] args) {
+
+        StartUp.displayTitle();
+        
+=======
         System.out.println(new App().getGreeting());
 
         // Will be done in different task currently in icebox
@@ -38,6 +40,7 @@ public class App {
         System.out.println(SelectingClass.selectingClass(fall));
 
         userChooseYearStyle();
+
     }
 }
 
