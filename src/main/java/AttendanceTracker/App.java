@@ -24,6 +24,7 @@ public class App {
             System.out.println(val + " ");
         }
 
+        // Will be done in different task currently in icebox
         List<String> spring = new ArrayList<>();
         spring.add("CPSC 2735");
         spring.add("CPSC 2120");
@@ -33,58 +34,20 @@ public class App {
             System.out.println(val2 + " ");
         }
 
-
-
-
         System.out.println("\nChoose from the courses listed for Fall" );
-        
         System.out.println(SelectingClass.selectingClass(fall));
 
-       
-    
+
         }
+
+
+
+
+
+  
+}
+
+    
+
         
 
-
-
-
-
-    //     // Will be done in different task currently in icebox
-    //     List<String> fall = new ArrayList<>();
-    //     fall.add("CPSC 1724");
-    //     fall.add("CPSC 2720");
-    //     fall.add("CPSC 3140");
-    //     System.out.println("\nCourses offered in the Fall");
-    //     for(String val : fall){
-    //         System.out.println(val + " ");
-    //     }
-
-    //     List<String> spring = new ArrayList<>();
-    //     spring.add("CPSC 2735");
-    //     spring.add("CPSC 2120");
-    //     spring.add("CPSC 3060");
-    //     System.out.println("\nCourses offered in the Spring" );
-    //     for(String val2 : spring){
-    //         System.out.println(val2 + " ");
-    //     }
-
-    //     System.out.println("\nChoose from the courses listed for Fall" );
-    //     String selectedClass = selectingClass(fall);
-    //     System.out.println(selectedClass);
-    
-    // }
-
-
-    //    public static String selectingClass(List classes) {
-    //     Scanner myObj = new Scanner(System.in);
-    //     System.out.println("\nSelect a course: ");
-    //     String course = myObj.nextLine();
-
-    //     while(classes.contains(course) == false){
-    //         myObj = new Scanner(System.in);
-    //         System.out.println("\nInvalid course, Select a course: ");
-    //         course = myObj.nextLine();
-    //     }
-    //     return course;
-    // }
-}
