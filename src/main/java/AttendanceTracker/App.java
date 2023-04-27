@@ -6,12 +6,21 @@ package AttendanceTracker;
 
 import static AttendanceTracker.YearOptions.userChooseYearStyle;
 
-public class App {
 
-    public static void main(String[] args) {
-        userChooseYearStyle();
+public class App {
+    public static String repeat_char(int num, String c) {
+        String s = "";
+        for(int i = 0; i < num; i++){
+            s = s + c;
+
+        }
+        return s;
     }
 
-
+    public static void main(String[] args) {
+        System.out.println(repeat_char(40, "-"));
+        System.out.println(repeat_char(5, "-") + "Welcome to Attendance Tracker" + repeat_char(5, "-"));
+        System.out.println(repeat_char(40, "-"));
+    }
 }
 
