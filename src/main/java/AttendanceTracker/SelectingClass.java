@@ -21,7 +21,9 @@ public class SelectingClass {
             while(classes.contains(course) == false){
                 System.out.println("\nInvalid course, Select a course: ");
                 course = scanner.nextLine();
+                
             }
+            scanner.close();
         return course;
     }    
 }
