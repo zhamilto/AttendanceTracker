@@ -34,15 +34,13 @@ public class App {
             System.out.println(val2 + " ");
         }
 
+        
+
         System.out.println("\nChoose from the courses listed for Fall" );
         System.out.println(SelectingClass.selectingClass(fall));
 
 
         }
-
-
-
-
 
   
 }
