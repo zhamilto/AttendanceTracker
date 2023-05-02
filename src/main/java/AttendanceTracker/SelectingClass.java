@@ -10,6 +10,7 @@ public class SelectingClass {
         String course;
 
         System.out.println("\nSelect a course: ");
+        System.out.println(classes);
         course = scanner.nextLine();
         do{
             check = course instanceof String;
