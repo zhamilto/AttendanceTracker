@@ -17,6 +17,7 @@ public class AbsentStudent {
         userChooseStudentSelection();
     }
 
+
     static public void userChooseStudentSelection() {
         System.out.print("Do you want to (S) select all students or (A) mark present students incorrectly marked absent?: ");
         String letterChoice = scan.nextLine();
