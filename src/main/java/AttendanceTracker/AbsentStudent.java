@@ -28,7 +28,6 @@ public class AbsentStudent {
             selectStudent();
         }
     }
-
     static ArrayList<String> createList() {
         ArrayList<String> rosterList = new ArrayList<>();
         rosterList.add("Tia Bishop");
