@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+import static AttendanceTracker.YearOptions.userChooseYearStyle;
+
 public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        // System.out.println(new App().getGreeting());
 
         // Will be done in different task currently in icebox
         List<String> fall = new ArrayList<>();
@@ -38,14 +38,10 @@ public class App {
 
         System.out.println("\nChoose from the courses listed for Fall" );
         System.out.println(SelectingClass.selectingClass(fall));
-
-
-        }
-
-  
+        // userChooseYearStyle();
+    }
 }
 
     
 
-        
-
+       
