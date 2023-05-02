@@ -74,30 +74,6 @@ public class AbsentStudent {
             }
         }while (!student.equals("Q"));
         System.out.println("These students have been marked as PRESENT " + markedList);
-
-
-
-//        do {
-//            System.out.print("Who was incorrectly marked absent: ");
-//            System.out.print("If you are finished marking students enter (Q)");
-//                for(String studentInClass: studentList){
-//                    while(!scan.hasNextLine()){
-//                        while (!studentList.contains(studentInClass)){
-//                            String incorrect = scan.next();
-//                            System.out.printf("\"%s\" is not a student in this class.\n", incorrect);
-//                            System.out.print("Enter the student: ");
-//                        }
-//                    }
-//                    }
-//
-//            student = scan.nextLine();
-//            if (studentList.contains(student)) {
-//                markedList.add(student);
-//                System.out.println(student + " PRESENT");
-//            } else {
-//                markedList.add(student + " ABSENT");
-//            }
-//        }while (studentList.contains(student)) ;
         return markedList;
     }
 }
