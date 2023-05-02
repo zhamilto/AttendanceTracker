@@ -35,10 +35,10 @@ public class AbsentStudent {
 
     static ArrayList<String> markAllStudents() {
         ArrayList<String> marklist = new ArrayList<>();
-        ArrayList<String> list = createList();
+        ArrayList<String> list = createList(); //once text file + function to read roster is created this will be refactored
         for (String student : list) {
             String mark = student + " PRESENT";
-            System.out.println(mark);
+            //System.out.println(mark);
             marklist.add(mark);
         }
         return marklist;
