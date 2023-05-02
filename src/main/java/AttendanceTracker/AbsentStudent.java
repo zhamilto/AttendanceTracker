@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-//On the roster view, the user can select every student that was incorrectly marked absent or they can click the select all button.
-// break this into 2 cases
-// 1. marked incorrectly
-// 2. select all students
-// 2. go through list and print present next to each name, return list of all marked students
-// 1. user input for name of student
+
 public class AbsentStudent {
     static Scanner scan = new Scanner(System.in);
 
