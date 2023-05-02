@@ -27,6 +27,9 @@ public class EmailPreview {
 
     private static void emailPreview() {
 
+        //TODO - Get recepients/header from constants/subject builder
+        //TODO - Get body from roster 
+        // TODO - return email preview as string 
     }
 
 }
