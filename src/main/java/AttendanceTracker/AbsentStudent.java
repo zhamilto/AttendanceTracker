@@ -14,13 +14,18 @@ public class AbsentStudent {
     static public void userChooseStudentSelection() {
         System.out.print("Do you want to (S) select all students or (A) mark present students incorrectly marked absent?: ");
         String letterChoice = scan.nextLine();
-        if (letterChoice.equals("S")) {
-            markAllStudents();
+            if (letterChoice.equals("S")) {
+                markAllStudents();
+            }
+            if (letterChoice.equals("A")) {
+                selectStudent();
+            }else {
+                System.out.println("That input is invalid.");
+                userChooseStudentSelection();
+            }
         }
-        if (letterChoice.equals("A")) {
-            selectStudent();
-        }
-    }
+
+
     static ArrayList<String> createList() {
         ArrayList<String> rosterList = new ArrayList<>();
         rosterList.add("Tia Bishop");
