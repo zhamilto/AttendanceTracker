@@ -38,7 +38,7 @@ public class AbsentStudent {
         ArrayList<String> list = createList(); //once text file + function to read roster is created this will be refactored
         for (String student : list) {
             String mark = student + " PRESENT";
-            //System.out.println(mark);
+            System.out.println(mark);
             marklist.add(mark);
         }
         return marklist;
@@ -52,18 +52,17 @@ public class AbsentStudent {
             System.out.print("Who was incorrectly marked absent? If you have finished entering students, enter (Q): ");
             student = scan.nextLine();
             if(!student.equals("Q")){
-                for (String person:studentList) {
-
-                }
                 if(studentList.contains(student)){
                     String present = student + " PRESENT";
                     markedList.add(present);
+                    System.out.println("");
 
                 } else if (!studentList.contains(student)) {
                     System.out.println("That name is not recognized. Please enter a student on roster.");
                 } else{
                     String absent = student + " ABSENT";
                     markedList.add(absent);
+
                 }
 
             }
