@@ -8,9 +8,7 @@ import java.util.Scanner;
 public class AbsentStudent {
     static Scanner scan = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        userChooseStudentSelection();
-    }
+
 
 
     static public void userChooseStudentSelection() {
