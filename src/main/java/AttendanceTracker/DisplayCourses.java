@@ -12,69 +12,32 @@ import java.util.Scanner;
 
 
 public class DisplayCourses {
+
         // TODO: Create funciton that calls the year and semester function to create word ie (Spring 2023)
-
-
-        // STEPS 
-        // call yearOption class to get the year 
-        // call SemesterOptoion class to get the semester 
-        // combine the two to get a string of the word 
-        // return that new word string 
-
-        public static String buildSemesterYear() {
-            // worked
-            // YearOptions year = new YearOptions();
-            // year = userChooseYearStyle();
-            // System.out.println(year.getClass());
-            // String yearAsString = Integer.toString(year);
-            
-            // return yearAsString;
-            return null;
-        }
-
-        // static Object displayCourseList(String semesterYear){
-        //     Object empty = new Object();
-        //     List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
-        //     Map<String, List<String>>courseMap = listIntoMap(data);
-        //     for(Map.Entry mp: courseMap.entrySet()){
-        //         if (mp.getKey().equals(semesterYear)){
-        //         System.out.println(mp.getValue()); 
-        //         empty = mp.getValue();
-        //         } 
-        //     }
-        //     System.out.println(empty.getClass());
-        //     return empty;        
-        // }
-
-
-        static void printList(List<String> courses){
-            for (String elemnt : courses){
-                System.out.println(elemnt);
-            }
-        }
-
-
-        
-        static List<String> displayCourseList(String semesterYear){
-            List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
-            Map<String, List<String>> courseMap = listIntoMap(data);
-            List<String> value = new ArrayList<>();
-
-            System.out.println("Courses offered in " + semesterYear);            
-            for (Map.Entry<String, List<String>> entry : courseMap.entrySet()){
+        public static String buildSemesterYear(Map<String, List<String>> Map) {
+            System.out.println("\nTerms options: ");
+            for (Map.Entry<String, List<String>> entry : Map.entrySet()){
                 String key = entry.getKey();
-                value = entry.getValue();
-                if (key.equals(semesterYear)){
-                                for (String element : value){
-                        System.out.println(" - " + element);
-                    }
-                    return value;       
-                } else{
-                    value = Collections.<String> emptyList();
-                }      
+                System.out.println(key);
             }
-            return value;
+            System.out.println("");
+            YearOptions userChooseYearStyle = new YearOptions();
+            int year = userChooseYearStyle.userChooseYearStyle();
+            while(!Map.containsKey(year)){
+                year = userChooseYearStyle.userChooseYearStyle();
+            }
+            String yearString = String.valueOf(year);
+
+            // // FIGURE OUT HOW TO CALL JOSH'S FUNCTION 
+            // SemesterOptions promptUserforSemester = new SemesterOptions();
+            // int semester = promptUserforSemester.promptUserforSemester();
+            // String semesterString = String.valueOf(semester);
+            
+           
+            // return yearString + semesterString;
+            return yearString;
         }
+
 
         static List<String>readFile(String filename){
             ArrayList<String>trend_list=new ArrayList<>();
@@ -108,39 +71,45 @@ public class DisplayCourses {
             return map;
         }
 
+        static List<String> displayCourseList(String semesterYear){
+            List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
+            Map<String, List<String>> courseMap = listIntoMap(data);
+            List<String> value = new ArrayList<>();
+
+            System.out.println("Courses offered in " + semesterYear);            
+            for (Map.Entry<String, List<String>> entry : courseMap.entrySet()){
+                String key = entry.getKey();
+                value = entry.getValue();
+                if (key.equals(semesterYear)){
+                        for (String element : value){
+                        System.out.println(" - " + element);
+                    }
+                    return value;       
+                } else{
+                    value = Collections.<String> emptyList();
+                }      
+            }
+            return value;
+        }
 
 
+        // TODO: Make buildSemesterYear function work 
+        static String displayAndChooseCourse(){
+            /// TODO: Call budildSemesterYear to get parameters for displayCourseList
+            List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
+            Map<String, List<String>> courseMap = listIntoMap(data);
+            String semesterYear = buildSemesterYear(courseMap);
+                        
+            System.out.println("\n");
+            List<String> courses = displayCourseList(semesterYear);
+            // List<String> courses = displayCourseList("Spring 2023");
+
+            SelectingClass selectingClass = new SelectingClass();
+            String selectedCourse = selectingClass.selectingClass(courses);
 
 
-
-
-
-        // On the class view, after a "Display List ot Coueses" radio buttion is clicked
-        // the user can select one couses 
-        // TODO: Display list of couses -> Sect one course:
-        // Attach display list of couses function to the selecting class function 
-
-        static SelectingClass displayAndChooseCourse(){
-            // call budildSemesterYear to get parameters for displayCourseList
-            // String semesterYear = buildSemesterYear();
-            // System.out.println(semesterYear);
+            return selectedCourse;
             
-            
-            // display the courses
-            Object courses = displayCourseList("Spring 2023");
-                      
-
-            // List<Object> list = Arrays.asList(courses);
-
-
-
-            // call selectingClass 
-            // SelectingClass selectingClass = new SelectingClass();
-            // selectingClass.selectingClass(list);
-
-
-            // return selectingClass;
-            return null;
         }
     }
 
