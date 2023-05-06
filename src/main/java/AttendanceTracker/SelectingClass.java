@@ -9,8 +9,7 @@ public class SelectingClass {
         Scanner scanner = new Scanner(System.in);
         String course;
 
-        System.out.println("\nSelect a course: ");
-        System.out.println(classes);
+        System.out.println("\nPlease enter a course, section, and CRN listed above: ");
         course = scanner.nextLine();
         do{
             check = course instanceof String;
@@ -20,7 +19,7 @@ public class SelectingClass {
 
         } while(!check);
             while(classes.contains(course) == false){
-                System.out.println("\nInvalid course, Select a course: ");
+                System.out.println("\nInvalid course, please enter a course, section, and CRN listed above: ");
                 course = scanner.nextLine();
                 
             }
