@@ -1,12 +1,14 @@
 package AttendanceTracker;
 import java.io.File;
-import java.io.*;
-import java.util.*;
+import java.io.FileNotFoundException;
+import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class DisplayCourses {
@@ -19,30 +21,63 @@ public class DisplayCourses {
         // combine the two to get a string of the word 
         // return that new word string 
 
-
-
         public static String buildSemesterYear() {
             // worked
-            YearOptions year = new YearOptions();
-            year.userChooseYearStyle();
+            // YearOptions year = new YearOptions();
+            // year = userChooseYearStyle();
+            // System.out.println(year.getClass());
+            // String yearAsString = Integer.toString(year);
+            
+            // return yearAsString;
             return null;
         }
 
-        
-        static Object displayCourseList(String semesterYear){
-            Object empty = new Object();
+        // static Object displayCourseList(String semesterYear){
+        //     Object empty = new Object();
+        //     List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
+        //     Map<String, List<String>>courseMap = listIntoMap(data);
+        //     for(Map.Entry mp: courseMap.entrySet()){
+        //         if (mp.getKey().equals(semesterYear)){
+        //         System.out.println(mp.getValue()); 
+        //         empty = mp.getValue();
+        //         } 
+        //     }
+        //     System.out.println(empty.getClass());
+        //     return empty;        
+        // }
 
-            List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
-            Map<String, List<String>>courseMap = listIntoMap(data);
-            for(Map.Entry mp: courseMap.entrySet()){
-                if (mp.getKey().equals(semesterYear)){
-                    System.out.println(mp.getValue()); 
-                    empty = mp.getValue();
-                } 
 
+        static void printList(List<String> courses){
+            for (String elemnt : courses){
+                System.out.println(elemnt);
             }
-            return empty;        
         }
+
+
+        // TODO: Edit so the courses are printed one by one 
+        static List<String> displayCourseList(String semesterYear){
+            // Object empty = new Object();
+            List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
+            Map<String, List<String>> courseMap = listIntoMap(data);
+            List<String> value = new ArrayList<>();
+            
+            for (Map.Entry<String, List<String>> entry : courseMap.entrySet()){
+                String key = entry.getKey();
+                value = entry.getValue();
+                if (key.equals(semesterYear)){
+                    // System.out.println(value);
+                    for (String element : value){
+                        System.out.println(" - " + element);
+                    }
+                    return value;       
+                } else{
+                    value = Collections.<String> emptyList();
+                }      
+            }
+            return value;
+        }
+
+
     
         static List<String>readFile(String filename){
             ArrayList<String>trend_list=new ArrayList<>();
@@ -58,18 +93,31 @@ public class DisplayCourses {
             return trend_list;
         }
 
+
+
         static Map<String, List<String>> listIntoMap(List <String> inputList){
-            Map<String, List<String>> map = new HashMap<>();        
+            Map<String, List<String>> map = new HashMap<>();  
             for (String word: inputList){
                 String[] wordSplit = word.split(":");
                 String semesterYear = wordSplit[0];
-                ArrayList <String> classes = new ArrayList<>();
-                classes.add(wordSplit[1]);
+                
+                List<String> classes = new ArrayList<>();
+                String[] test = wordSplit[1].split(",");
+                for (String section : test){
+                    classes.add(section);
+                    
+                }               
                 map.put(semesterYear, classes);
             
             }
             return map;
         }
+
+
+
+
+
+
 
 
         // On the class view, after a "Display List ot Coueses" radio buttion is clicked
@@ -79,20 +127,25 @@ public class DisplayCourses {
 
         static SelectingClass displayAndChooseCourse(){
             // call budildSemesterYear to get parameters for displayCourseList
-            String semesterYear = buildSemesterYear();
-            System.out.println("\n");
+            // String semesterYear = buildSemesterYear();
+            // System.out.println(semesterYear);
             
-            // displayCourseList(null);
-            Object courses = displayCourseList("Spring 2020");
+            
+            // display the courses
+            Object courses = displayCourseList("Spring 2023");
+                      
 
-            List<Object> list = Arrays.asList(courses);
+            // List<Object> list = Arrays.asList(courses);
+
+
 
             // call selectingClass 
-            SelectingClass selectingClass = new SelectingClass();
-            selectingClass.selectingClass(list);
+            // SelectingClass selectingClass = new SelectingClass();
+            // selectingClass.selectingClass(list);
 
 
-            return selectingClass;
+            // return selectingClass;
+            return null;
         }
     }
 
