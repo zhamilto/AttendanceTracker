@@ -54,19 +54,18 @@ public class DisplayCourses {
         }
 
 
-        // TODO: Edit so the courses are printed one by one 
+        
         static List<String> displayCourseList(String semesterYear){
-            // Object empty = new Object();
             List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
             Map<String, List<String>> courseMap = listIntoMap(data);
             List<String> value = new ArrayList<>();
-            
+
+            System.out.println("Courses offered in " + semesterYear);            
             for (Map.Entry<String, List<String>> entry : courseMap.entrySet()){
                 String key = entry.getKey();
                 value = entry.getValue();
                 if (key.equals(semesterYear)){
-                    // System.out.println(value);
-                    for (String element : value){
+                                for (String element : value){
                         System.out.println(" - " + element);
                     }
                     return value;       
@@ -77,8 +76,6 @@ public class DisplayCourses {
             return value;
         }
 
-
-    
         static List<String>readFile(String filename){
             ArrayList<String>trend_list=new ArrayList<>();
             try{
@@ -94,7 +91,6 @@ public class DisplayCourses {
         }
 
 
-
         static Map<String, List<String>> listIntoMap(List <String> inputList){
             Map<String, List<String>> map = new HashMap<>();  
             for (String word: inputList){
@@ -108,7 +104,6 @@ public class DisplayCourses {
                     
                 }               
                 map.put(semesterYear, classes);
-            
             }
             return map;
         }
