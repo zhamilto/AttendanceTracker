@@ -1,73 +1,92 @@
 package AttendanceTracker;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
-
+import static AttendanceTracker.FormatEmail.idToStudentMap;
 
 
 public class AbsentStudent {
-    static Scanner scan = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        userChooseStudentSelection();
-    }
+    static Scanner scan = new Scanner(System.in);
+    static ArrayList<String>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
 
 
     static public void userChooseStudentSelection() {
         System.out.print("Do you want to (S) select all students or (A) mark present students incorrectly marked absent?: ");
         String letterChoice = scan.nextLine();
         if (letterChoice.equals("S")) {
-            markAllStudents();
+            markAllStudents(idToStudentMap);
         }
         if (letterChoice.equals("A")) {
-            selectStudent();
+            selectStudent(idToStudentMap);
+        }else{
+            System.out.println("That input is invalid.");
+            userChooseStudentSelection();
         }
-    }
-    static ArrayList<String> createList() {
-        ArrayList<String> rosterList = new ArrayList<>();
-        rosterList.add("Tia Bishop");
-        rosterList.add("Zari Hamiltion");
-        rosterList.add("Elana Perriott");
-        rosterList.add("Josh Green");
-        rosterList.add("Terrance Myles");
-        return rosterList;
     }
 
-    static ArrayList<String> markAllStudents() {
+    static ArrayList<String> readCSVFileIntoList(String filename) {
+        ArrayList<String> studentRosterList = new ArrayList<>();
+        try {
+            Scanner startScan = new Scanner(new File(filename));
+            while (startScan.hasNext()) {
+                String lineOfData = startScan.nextLine();
+                String[] parts = lineOfData.split(",");
+                String firstName = parts[0];
+                String lastName = parts[1];
+                String idNum = parts[2];
+
+                String st = firstName + " "+ lastName;
+                studentRosterList.add(st);
+            }
+            startScan.close();
+        } catch (Exception e) {
+            System.err.println("Couldn't read file. Starting with empty list");
+
+        }
+        return studentRosterList;
+    }
+
+
+    static ArrayList<String> markAllStudents(Map<String,String> map) {
         ArrayList<String> marklist = new ArrayList<>();
-        ArrayList<String> list = createList(); //once text file + function to read roster is created this will be refactored
-        for (String student : list) {
-            String mark = student + " PRESENT";
-            System.out.println(mark);
+        ArrayList<String> list = rosterList;
+        for(String id: map.keySet()){
+            //System.out.println(id);
+            String student = map.get(id);
+            String mark = id + " PRESENT" + "\n";
             marklist.add(mark);
         }
+        System.out.println(marklist);
         return marklist;
     }
 
-    static ArrayList<String> selectStudent() {
-        ArrayList<String> studentList = createList(); //once text file + function to read roster is created this will be refactored
+    static ArrayList<String> selectStudent(Map<String,String> map) {
+        ArrayList<String> studentList = rosterList;
         ArrayList<String> markedList = new ArrayList<>();
         String student;
         do{
             System.out.print("Who was incorrectly marked absent? If you have finished entering students, enter (Q): ");
             student = scan.nextLine();
             if(!student.equals("Q")){
-                if(studentList.contains(student)){
-                    String present = student + " PRESENT";
-                    markedList.add(present);
-                    System.out.println("");
+                for (String id: map.keySet()) {
+                    if(map.containsValue(student)){
+                        String present = map.get(id) + " PRESENT";
+                        markedList.add(present);
 
-                } else if (!studentList.contains(student)) {
-                    System.out.println("That name is not recognized. Please enter a student on roster.");
-                } else{
-                    String absent = student + " ABSENT";
-                    markedList.add(absent);
+                    } else if (!map.containsValue(student)) {
+                        System.out.println("That name is not recognized. Please enter a student on roster.");
+                    } else{
+                        String absent = id + " ABSENT";
+                        markedList.add(absent);
+                    }
 
                 }
-
-            }
+                }
         }while (!student.equals("Q"));
-        System.out.println("These students have been marked as PRESENT " + markedList);
+        System.out.println("These students have now been marked as PRESENT " + markedList);
         return markedList;
     }
 }
