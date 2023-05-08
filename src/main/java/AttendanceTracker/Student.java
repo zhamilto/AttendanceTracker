@@ -15,6 +15,12 @@ public class Student {
         this.lastName = lastName;
         this.idNum = idNum;
     }
+    public Student(String dataLine) {
+        String[] parts = dataLine.split(",");
+        firstName = parts[0];
+        lastName = parts[1];
+        idNum = parts[2];
+    }
 
     public String getFirstName() {
         return firstName;

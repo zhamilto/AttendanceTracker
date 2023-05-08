@@ -1,27 +1,30 @@
 package AttendanceTracker;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static AttendanceTracker.AbsentStudent.markAllStudents;
+//import static AttendanceTracker.DisplayCourses.buildSemesterYear;
+
 import static AttendanceTracker.AbsentStudent.selectStudent;
 
 public class FormatEmail {
+    static ArrayList<String> idNums = getIDFromList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
+    static ArrayList<Student>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
     public static void main(String[] args) {
+       cardSwipeCodeNotEntered();
         //mistakenlyMarkedAbsentFormat();
-        cardSwipeCodeNotEntered();
     }
     static Scanner scan = new Scanner(System.in);
     //On the roster view, after selecting students incorrectly marked absent, the user can click the preview email button.
 
-    static ArrayList<Student>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
+
 
     static ArrayList<Student> readCSVFileIntoList(String filename) {
         ArrayList<Student> studentRosterList = new ArrayList<>();
-        try {
+                try {
             Scanner startScan = new Scanner(new File(filename));
-            String headers = startScan.nextLine();
             while (startScan.hasNext()) {
                 String lineOfData = startScan.nextLine();
                 String[] parts = lineOfData.split(",");
@@ -40,9 +43,30 @@ public class FormatEmail {
         return studentRosterList;
     }
 
-    public static void chooseEmailFormatTemplate(){
+    static ArrayList<String> getIDFromList(String filename) {
+        ArrayList<String> studentRosterList = new ArrayList<>();
+        String line = "";
+        String splitBy = ",";
+        String id = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt"));
+            while ((line = br.readLine()) != null)   
+            {
+                String[] student = line.split(splitBy);    
+                id = student[2];
+                studentRosterList.add(id);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return studentRosterList;
+    }
+
+
+    public static String chooseEmailFormatTemplate(){
         System.out.println("Which email format would you like to use?: ");
         String choice = scan.nextLine();
+        return "";
 
     }
     /*
@@ -53,16 +77,13 @@ public class FormatEmail {
     Dates: Example... 1/23, 1/25, 1/27, etc..
      */
     public static String mistakenlyMarkedAbsentFormat(){
-        String term = "";
-        String CRN = "";
-        String idNum = "";
-        String date = "";
-        String completeFormat = "";
-        for (Student student : rosterList) {
-            idNum = student.getIdNum();
-        }
-
-        return "";
+        String term = "Spring 2023";
+        String CRN = "12345";
+        String idNum = idNums.toString();;
+        String date = "5/7";
+        String completeFormat = "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ idNum  + "\n" + "Dates: "+ date + "\n";
+        System.out.println(completeFormat);
+        return completeFormat;
     }
 
     /*
@@ -72,8 +93,15 @@ public class FormatEmail {
     Dates: Example... 1/23, 1/25, 1/27, etc..
     Absent Students ID Number: Examples...900XXXXXX
      */
-    public static ArrayList cardSwipeCodeNotEntered(){
-        ArrayList<String> noSwipeList = markAllStudents();
-        return noSwipeList;
+    public static String cardSwipeCodeNotEntered(){
+        String term = "Spring 2023";
+        String CRN = "12345";
+        String idNumPresent = idNums.toString();;
+        String date = "5/7";
+        String idNumAbsent = "";
+        String completeFormat = "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ idNumPresent  + "\n" + "Dates: "+ date + "\n" +"Absent Student ID: " + "\n";
+        System.out.println(completeFormat);
+        return completeFormat;
+
     }
 }

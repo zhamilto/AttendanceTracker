@@ -1,15 +1,12 @@
 package  AttendanceTracker;
 
 import java.util.Calendar;
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.*;
-
 
 
 public class YearOptions {
     static Scanner scan = new Scanner(System.in);
-    static void userChooseYearStyle(){
+    static int userChooseYearStyle(){
         System.out.print("Do you want to (E) enter a year or (C) use the current year as the default?: ");
         String letterChoice = scan.nextLine();
         if (letterChoice.equals("E")) {
@@ -18,6 +15,7 @@ public class YearOptions {
         if (letterChoice.equals("C")) {
             defaultYear();
         }
+        return 0;
     }
     static int defaultYear(){
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
