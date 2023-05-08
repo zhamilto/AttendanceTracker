@@ -1,4 +1,4 @@
-package AttendanceTracker;
+package  AttendanceTracker;
 
 import java.util.Calendar;
 import java.util.InputMismatchException;
@@ -14,6 +14,7 @@ public class YearOptions {
 
 
     static Scanner scan = new Scanner(System.in);
+    
     static int userChooseYearStyle() {
         System.out.print("Do you want to (1.) enter a year or (2.) use the current year as the default?: ");
         int numChoice = scan.nextInt();
@@ -29,9 +30,7 @@ public class YearOptions {
         }
         return 0;
     }
-
-
-
+    
     static int defaultYear(){
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         System.out.println("The current year is "+ currentYear);
@@ -41,18 +40,17 @@ public class YearOptions {
     static int enteredYear() {
         Scanner scanner = new Scanner(System.in);
         int userEnteredYear;
-            do {
+        do {
+            System.out.print("Enter the year: ");
+            while (!scanner.hasNextInt()) {
+                String input = scanner.next();
+                System.out.printf("\"%s\" is not a valid year.\n", input);
                 System.out.print("Enter the year: ");
-                while (!scanner.hasNextInt()) {
-                    String input = scanner.next();
-                    System.out.printf("\"%s\" is not a valid year.\n", input);
-                    System.out.print("Enter the year: ");
-                }
-                userEnteredYear = scanner.nextInt();
-            } while (userEnteredYear  < 2010 || userEnteredYear > 2023);
-            System.out.println("The entered year is " + userEnteredYear);
-            return userEnteredYear;
-        }
+            }
+            userEnteredYear = scanner.nextInt();
+        } while (userEnteredYear  < 2010 || userEnteredYear > 2023);
+        System.out.println("The entered year is " + userEnteredYear);
+        return userEnteredYear;
     }
-
+}
 
