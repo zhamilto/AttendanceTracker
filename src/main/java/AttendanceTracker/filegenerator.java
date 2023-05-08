@@ -28,7 +28,7 @@ public class filegenerator {
         return FileName;
     }
 
-    public static void GenerateRosterData(String FileName) {
+    public static void GenerateRosterData(String FileName) throws IOException {
 
         String[] FirstNames = {
             "Ghefua","Macie","Antony","Darryl","Kaleb",
