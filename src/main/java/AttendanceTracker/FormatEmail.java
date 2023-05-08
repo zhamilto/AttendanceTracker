@@ -2,23 +2,52 @@ package AttendanceTracker;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import static AttendanceTracker.AbsentStudent.markAllStudents;
+
 //import static AttendanceTracker.DisplayCourses.buildSemesterYear;
 
-import static AttendanceTracker.AbsentStudent.selectStudent;
 
 public class FormatEmail {
     static ArrayList<String> idNums = getIDFromList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
     static ArrayList<Student>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
+
+    static HashMap<String,String> idToStudentMap = rosterToMap(rosterList);
     public static void main(String[] args) {
+
+        //HashMap<String,String>rosterMap = rosterToMap(rosterList);
+        //System.out.println(rosterToMap(rosterList));
+        //System.out.println(rosterMap);
        cardSwipeCodeNotEntered();
         //mistakenlyMarkedAbsentFormat();
     }
     static Scanner scan = new Scanner(System.in);
     //On the roster view, after selecting students incorrectly marked absent, the user can click the preview email button.
 
+    static HashMap<String,String> rosterToMap(ArrayList<Student>rosterList){
+        HashMap<String,String>map = new HashMap<>();
+        for(Student student: rosterList){
+            String fullNameValue = student.getFirstName() + " "+ student.getLastName();
+            String idKey = student.getIdNum();
+            map.put(idKey,fullNameValue);
+        }
+        return map;
+    }
+    static public void chooseTemplate() {
+        System.out.print("Do you want the template for (N) card swipe not set up or (S) mark certain students?: ");
+        String letterChoice = scan.nextLine();
+        if (letterChoice.equals("N")) {
+            cardSwipeCodeNotEntered();
+        }
+        if (letterChoice.equals("S")) {
+            mistakenlyMarkedAbsentFormat();
+        }else{
+            System.out.println("That input is invalid.");
+            chooseTemplate();
+        }
+    }
 
 
     static ArrayList<Student> readCSVFileIntoList(String filename) {
@@ -77,10 +106,14 @@ public class FormatEmail {
     Dates: Example... 1/23, 1/25, 1/27, etc..
      */
     public static String mistakenlyMarkedAbsentFormat(){
+        HashMap<String, String> map = (idToStudentMap);
         String term = "Spring 2023";
         String CRN = "12345";
         String idNum = idNums.toString();;
         String date = "5/7";
+        for(String id: map.keySet()){
+            idNum = id;
+        }
         String completeFormat = "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ idNum  + "\n" + "Dates: "+ date + "\n";
         System.out.println(completeFormat);
         return completeFormat;
@@ -94,13 +127,14 @@ public class FormatEmail {
     Absent Students ID Number: Examples...900XXXXXX
      */
     public static String cardSwipeCodeNotEntered(){
+        ArrayList<String> list = markAllStudents(idToStudentMap);
         String term = "Spring 2023";
         String CRN = "12345";
-        String idNumPresent = idNums.toString();;
+        String idNumPresent = list.toString();
         String date = "5/7";
-        String idNumAbsent = "";
-        String completeFormat = "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ idNumPresent  + "\n" + "Dates: "+ date + "\n" +"Absent Student ID: " + "\n";
-        System.out.println(completeFormat);
+        String idNumAbsent = "None";
+        String completeFormat = "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ idNumPresent  + "\n" + "Dates: "+ date + "\n" +"Absent Student ID: " + idNumAbsent + "\n";
+        //System.out.println(completeFormat);
         return completeFormat;
 
     }

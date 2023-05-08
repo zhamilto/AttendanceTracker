@@ -36,18 +36,18 @@ public class App {
         // System.out.println(new App().getGreeting());
 
 
-        List<String> data = DisplayCourses.readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
-        System.out.println(data);
-        System.out.println("\n");
-
-        Map<String, List<String>>courseMap = DisplayCourses.listIntoMap(data);
-        System.out.println(courseMap);
-        System.out.println("\n");
-
-
-        String semesterYear = DisplayCourses.buildSemesterYear(courseMap);
-        System.out.println(semesterYear);
-        DisplayCourses.displayCourseList("Spring 2020");
+//        List<String> data = DisplayCourses.readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
+//        System.out.println(data);
+//        System.out.println("\n");
+//
+//        Map<String, List<String>>courseMap = DisplayCourses.listIntoMap(data);
+//        System.out.println(courseMap);
+//        System.out.println("\n");
+//
+//
+//        String semesterYear = DisplayCourses.buildSemesterYear(courseMap);
+//        System.out.println(semesterYear);
+//        DisplayCourses.displayCourseList("Spring 2020");
 
         // DisplayCourses.displayAndChooseCourse();
 
