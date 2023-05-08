@@ -3,14 +3,15 @@
  */
 package AttendanceTracker;
 
-import org.checkerframework.checker.units.qual.A;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import static java.util.Map.entry;
+
+import org.junit.jupiter.api.Test;
 
 class SelectingClassTest {
        
@@ -26,7 +27,8 @@ class SelectingClassTest {
     //     assertEquals("MATH 1234", SelectingClass.selectingClass(mockList));
     //     assertEquals(" ", SelectingClass.selectingClass(mockList));
     // }
+    }
  
-}
+
 
 

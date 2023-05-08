@@ -4,57 +4,23 @@
 
 package AttendanceTracker;
 
-import java.io.*;
-import java.util.*;
-import java.util.stream.Collectors;
-
-import static AttendanceTracker.YearOptions.userChooseYearStyle;
-
 public class App {
 
     public static void main(String[] args) throws Exception {  
            
-        // convert txt file into list 
-        // List<String> data = DisplayCourses.readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
-        // System.out.println(data);
-        // System.out.println("\n");
+
+        // DisplayCourses.displayAndChooseCourse("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
+        DisplayCourses.displayAndChooseCourse("Courses.txt");
+
+
+
   
-        // create map from list 
-        // Map<String, List<String>>courseMap = DisplayCourses.listIntoMap(data);
-        // System.out.println("MAP: " + courseMap);
-        // System.out.println("\n");
 
-      
-
-        // NOT WORKING YET 
-        // Build input semester year 
-        // String semesterYear = DisplayCourses.buildSemesterYear();
-
-
-        // Display list of couses offered for that semesterYear
-        // DisplayCourses.displayCourseList("Spring 2023");
-         
-        
-        // System.out.println(DisplayCourses.displayAndChooseCourse());
-        DisplayCourses.displayAndChooseCourse();
-       
     }
 
 
 
-
-   
-
-
-        // TODO: Create funciton that calls the year and semester function to create word ie (Spring 2023)
-
-
-        // TODO: Display list of couses: 
-
-
-
-        // TODO: Display list of couses -> Sect one course:
-        // Attach display list of couses function to the selecting class function 
+        
 
 
 }

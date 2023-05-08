@@ -17,29 +17,11 @@ public class DisplayCoursesTest {
 
     }    
 
-    // @Test void displayCourseListTest()
-    //     assertEquals()
-
+    // @Test void displayCourseListTest(){
+    //     List<String> data = DisplayCourses.readFile("C:\\Users\\elana\\AttendanceTracker\\src\\test\\java\\AttendanceTracker\\TestData.txt");
+    //     assertEquals(0, DisplayCourses.displayCourseList(data));
     // }
 
-
-    // String semesterYear = DisplayCourses.buildSemesterYear();
-    // DisplayCourses.displayCourseList("Spring 2020");
-
-    // static Object displayCourseList(String semesterYear){
-    //     Object empty = new Object();
-
-    //     List<String> data = readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
-    //     Map<String, List<String>>courseMap = listIntoMap(data);
-    //     for(Map.Entry mp: courseMap.entrySet()){
-    //         if (mp.getKey().equals(semesterYear)){
-    //             System.out.println(mp.getValue()); 
-    //             empty = mp.getValue();
-    //         } 
-
-    //     }
-    //     return empty;        
-    // }
 
     
 }
