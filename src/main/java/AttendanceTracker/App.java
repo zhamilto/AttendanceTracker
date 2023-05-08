@@ -10,7 +10,7 @@ import static AttendanceTracker.YearOptions.userChooseYearStyle;
 public class App {
 
     public static void main(String[] args) {
-
+        userChooseStudentSelection();
 
 
 

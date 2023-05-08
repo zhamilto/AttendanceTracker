@@ -1,12 +1,16 @@
 package AttendanceTracker;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-
 public class AbsentStudent {
-    static Scanner scan = new Scanner(System.in);
+
+        static Scanner scan = new Scanner(System.in);
+        static ArrayList<String>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
+
+
 
 
 
@@ -19,36 +23,50 @@ public class AbsentStudent {
             }
             if (letterChoice.equals("A")) {
                 selectStudent();
-            }else {
+            }else{
                 System.out.println("That input is invalid.");
                 userChooseStudentSelection();
             }
         }
 
+    static ArrayList<String> readCSVFileIntoList(String filename) {
+        ArrayList<String> studentRosterList = new ArrayList<>();
+        try {
+            Scanner startScan = new Scanner(new File(filename));
+            while (startScan.hasNext()) {
+                String lineOfData = startScan.nextLine();
+                String[] parts = lineOfData.split(",");
+                String firstName = parts[0];
+                String lastName = parts[1];
+                String idNum = parts[2];
 
-    static ArrayList<String> createList() {
-        ArrayList<String> rosterList = new ArrayList<>();
-        rosterList.add("Tia Bishop");
-        rosterList.add("Zari Hamiltion");
-        rosterList.add("Elana Perriott");
-        rosterList.add("Josh Green");
-        rosterList.add("Terrance Myles");
-        return rosterList;
+                String st = firstName + " "+ lastName;
+                studentRosterList.add(st);
+            }
+            startScan.close();
+        } catch (Exception e) {
+            System.err.println("Couldn't read file. Starting with empty list");
+
+        }
+        return studentRosterList;
     }
+
 
     static ArrayList<String> markAllStudents() {
         ArrayList<String> marklist = new ArrayList<>();
-        ArrayList<String> list = createList(); //once text file + function to read roster is created this will be refactored
+        ArrayList<String> list = rosterList; //once text file + function to read roster is created this will be refactored
         for (String student : list) {
-            String mark = student + " PRESENT";
+            String mark = student + " PRESENT" + "\n";
             //System.out.println(mark);
             marklist.add(mark);
+
         }
+        System.out.println(marklist);
         return marklist;
     }
 
     static ArrayList<String> selectStudent() {
-        ArrayList<String> studentList = createList(); //once text file + function to read roster is created this will be refactored
+        ArrayList<String> studentList = rosterList; //once text file + function to read roster is created this will be refactored
         ArrayList<String> markedList = new ArrayList<>();
         String student;
         do{
@@ -71,7 +89,7 @@ public class AbsentStudent {
 
             }
         }while (!student.equals("Q"));
-        System.out.println("These students have been marked as PRESENT " + markedList);
+        System.out.println("These students have now been marked as PRESENT " + markedList);
         return markedList;
     }
 }
