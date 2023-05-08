@@ -25,6 +25,7 @@ public class FormatEmail {
         }
         return map;
     }
+    //function that allows user to choose which email template
     static public String chooseTemplate() {
         System.out.print("Do you want the template for (N) card swipe not set up or (S) mark certain students?: ");
         String letterChoice = scan.nextLine();
