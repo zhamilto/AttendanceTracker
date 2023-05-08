@@ -32,6 +32,7 @@ public class AbsentStudent {
         }
     }
 
+
     static ArrayList<String> readCSVFileIntoList(String filename) {
         ArrayList<String> studentRosterList = new ArrayList<>();
         try {
