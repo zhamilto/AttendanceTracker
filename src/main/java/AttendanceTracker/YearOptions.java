@@ -12,10 +12,10 @@ public class YearOptions {
     static void userChooseYearStyle(){
         System.out.print("Do you want to (E) enter a year or (C) use the current year as the default?: ");
         String letterChoice = scan.nextLine();
-        if (letterChoice.equals("E")) {
+        if (letterChoice.toLowerCase().equals("e")) {
             enteredYear();
         }
-        if (letterChoice.equals("C")) {
+        if (letterChoice.toLowerCase().equals("c")) {
             defaultYear();
         }
     }
