@@ -2,7 +2,11 @@ package AttendanceTracker;
 
 import java.util.*;
 
-public class SemesterOptions {   
+public class SemesterOptions { 
+    static HashMap<Integer, String> semesters = new HashMap<Integer, String>(){{
+        put(1, "Spring");
+        put(2, "Fall");
+    }};
     /*
      * Displays semesters from HashMap in format from 1-n semesters with most recent semester displayed last.
      */
@@ -19,12 +23,12 @@ public class SemesterOptions {
     public static int promptUserforSemester(HashMap<Integer, String> semesters) {       
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please select one of the previous semesters by typing the corresponding number.");
-        int choice = 0;
+        System.out.println("Please select one of the previous semesters by typing the corresponding number. Or enter zero as a deafult.");
+        int choice;
         while (true) {
             if (input.hasNextInt()) {
                 choice = input.nextInt();
-                if (choice >= 1 && choice <= semesters.size()) { 
+                if (choice >= 0 && choice <= semesters.size()) { 
                     return choice; 
                 } else {
                     System.out.println("Invalid input. ");
