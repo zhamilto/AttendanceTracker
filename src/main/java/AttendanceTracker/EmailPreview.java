@@ -4,16 +4,10 @@ import java.util.*;
 
 public class EmailPreview {
     //Instance variables are declared statically for use in private method
-    static String sender;
-    static String recepient;
-    static String subject;
-    static String body;
+    static String email;
 
-    public EmailPreview(String inSender, String inRecepient,String inSubject, String inBody){
-        sender = inSender;
-        recepient = inRecepient;
-        subject = inSubject;
-        body = inBody;
+    public EmailPreview(String inEmail){
+        email = inEmail;
     }
 
     public static void emailPreviewSelector() {
@@ -25,7 +19,7 @@ public class EmailPreview {
         while(true) {
             choice = input.nextLine();
             if(choice.toLowerCase().equals("y")) {
-                emailPreview(sender, recepient, subject, body);
+                emailPreview(email);
                 break;
             }
             if(choice.toLowerCase().equals("n")) { 
@@ -37,10 +31,7 @@ public class EmailPreview {
         }
     }
 
-    private static void emailPreview(String sender, String recepient, String subject, String body) {
-        System.out.println("To: " + recepient);
-        System.out.println("From: " + sender);
-        System.out.print("Subject: " + subject + "\n");
-        System.out.println(body);      
+    private static void emailPreview(String email) {
+        System.out.println(email);      
     }
 }
