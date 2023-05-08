@@ -12,23 +12,31 @@ import static AttendanceTracker.YearOptions.userChooseYearStyle;
 
 public class App {
 
-    public static void main(String[] args) throws Exception {
-        // System.out.println(new App().getGreeting());
+    public static void main(String[] args) throws Exception {  
+           
+        // convert txt file into list 
+        // List<String> data = DisplayCourses.readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
+        // System.out.println(data);
+        // System.out.println("\n");
+  
+        // create map from list 
+        // Map<String, List<String>>courseMap = DisplayCourses.listIntoMap(data);
+        // System.out.println("MAP: " + courseMap);
+        // System.out.println("\n");
 
+      
+
+        // NOT WORKING YET 
+        // Build input semester year 
+        // String semesterYear = DisplayCourses.buildSemesterYear();
+
+
+        // Display list of couses offered for that semesterYear
+        // DisplayCourses.displayCourseList("Spring 2023");
+         
         
-        List<String> data = DisplayCourses.readFile("C:\\Users\\elana\\AttendanceTracker\\src\\main\\java\\AttendanceTracker\\Courses.txt");
-        System.out.println(data);
-        System.out.println("\n");
-    
-        Map<String, List<String>>courseMap = DisplayCourses.listIntoMap(data);
-        System.out.println(courseMap);
-        System.out.println("\n");
-
-
-        String semesterYear = DisplayCourses.buildSemesterYear();
-        DisplayCourses.displayCourseList("Spring 2020");
-
-        // DisplayCourses.displayAndChooseCourse();
+        // System.out.println(DisplayCourses.displayAndChooseCourse());
+        DisplayCourses.displayAndChooseCourse();
        
     }
 

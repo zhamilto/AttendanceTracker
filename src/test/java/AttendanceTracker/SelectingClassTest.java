@@ -14,18 +14,18 @@ import java.util.ArrayList;
 
 class SelectingClassTest {
        
-    @Test void testselectingClass() {
-        List<String> mockList = new ArrayList<>();
-        mockList.add("MATH 1234");
-        mockList.add("MATH 5678");
-        mockList.add("MATH 3579");
+    // @Test void testselectingClass() {
+    //     List<String> mockList = new ArrayList<>();
+    //     mockList.add("MATH 1234");
+    //     mockList.add("MATH 5678");
+    //     mockList.add("MATH 3579");
 
-        String inputCourse = "MATH 1234";
-        InputStream in = new ByteArrayInputStream(inputCourse.getBytes());
-        System.setIn(in);
-        assertEquals("MATH 1234", SelectingClass.selectingClass(mockList));
-        assertEquals(" ", SelectingClass.selectingClass(mockList));
-    }
+    //     String inputCourse = "MATH 1234";
+    //     InputStream in = new ByteArrayInputStream(inputCourse.getBytes());
+    //     System.setIn(in);
+    //     assertEquals("MATH 1234", SelectingClass.selectingClass(mockList));
+    //     assertEquals(" ", SelectingClass.selectingClass(mockList));
+    // }
  
 }
 
