@@ -148,5 +148,6 @@ public class AbsentTest {
         System.setIn(in);
         assertEquals(testMap, userChooseStudentSelection());
 
+
     }
 }
