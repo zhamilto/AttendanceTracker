@@ -9,7 +9,7 @@ import static AttendanceTracker.FormatEmail.idToStudentMap;
 public class AbsentStudent {
 
     static Scanner scan = new Scanner(System.in);
-    static ArrayList<String>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
+    static ArrayList<String>rosterList = readCSVFileIntoList("src/main/java/AttendanceTracker/roster.txt");
 
     public static void main(String[] args) {
         markAllStudents(idToStudentMap);
