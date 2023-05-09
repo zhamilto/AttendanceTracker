@@ -10,6 +10,7 @@ import static AttendanceTracker.AbsentStudent.selectStudent;
 
 public class FormatEmail {
 
+
     static ArrayList<Student>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
     static HashMap<String,String> idToStudentMap = rosterToMap(rosterList);
     static Scanner scan = new Scanner(System.in);
