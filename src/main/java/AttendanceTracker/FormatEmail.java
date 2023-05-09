@@ -9,7 +9,7 @@ import static AttendanceTracker.AbsentStudent.markAllStudents;
 import static AttendanceTracker.AbsentStudent.selectStudent;
 
 public class FormatEmail {
-    static ArrayList<String> idNums = getIDFromList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
+
     static ArrayList<Student>rosterList = readCSVFileIntoList("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt");
     static HashMap<String,String> idToStudentMap = rosterToMap(rosterList);
     static Scanner scan = new Scanner(System.in);
@@ -63,24 +63,7 @@ public class FormatEmail {
         return studentRosterList;
     }
 
-    static ArrayList<String> getIDFromList(String filename) {
-        ArrayList<String> studentRosterList = new ArrayList<>();
-        String line = "";
-        String splitBy = ",";
-        String id = "";
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\tiabi\\IdeaProjects\\Attendance\\src\\main\\java\\AttendanceTracker\\roster.txt"));
-            while ((line = br.readLine()) != null)   
-            {
-                String[] student = line.split(splitBy);    
-                id = student[2];
-                studentRosterList.add(id);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return studentRosterList;
-    }
+
   // this is for case that student forgets their id and professor has to manually report them
     public static String mistakenlyMarkedAbsentFormat(){
         HashMap<String, String> map = selectStudent(idToStudentMap);
