@@ -5,18 +5,29 @@ import java.util.Scanner;
 
 
 public class YearOptions {
+    public static void main(String[] args) {
+        userChooseYearStyle();
+    }
+
+
     static Scanner scan = new Scanner(System.in);
-    static int userChooseYearStyle(){
-        System.out.print("Do you want to (E) enter a year or (C) use the current year as the default?: ");
-        String letterChoice = scan.nextLine();
-        if (letterChoice.equals("E")) {
-            enteredYear();
+    
+    static int userChooseYearStyle() {
+        System.out.print("Do you want to (1.) enter a year or (2.) use the current year as the default?: ");
+        int numChoice = scan.nextInt();
+        if (numChoice == 1) {
+            return enteredYear();
         }
-        if (letterChoice.equals("C")) {
-            defaultYear();
+        if (numChoice == 2) {
+            return defaultYear();
+        }
+        if(numChoice != 1 || numChoice != 2){
+            System.out.println("Invalid input. Please enter a year as a number.");
+            numChoice = Integer.parseInt(scan.next());
         }
         return 0;
     }
+    
     static int defaultYear(){
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         System.out.println("The current year is "+ currentYear);
