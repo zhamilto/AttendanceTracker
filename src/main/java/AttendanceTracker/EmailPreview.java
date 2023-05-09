@@ -32,6 +32,8 @@ public class EmailPreview {
     }
 
     private static void emailPreview(String email) {
+        System.out.println("To: registrars@xula.edu");
+        System.out.println("From: attendancetracker@xula.edu"+"\n");
         System.out.println(email);      
     }
 }
