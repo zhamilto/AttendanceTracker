@@ -19,12 +19,13 @@ public class AbsentStudent {
 
     // allows user to choose to select all students or those marked absent incorrectly
     static public HashMap userChooseStudentSelection() {
-        System.out.print("Do you want to (S) select all students or (A) mark present students incorrectly marked absent?: ");
+        System.out.println("\n");
+        System.out.print("Do you want to (1) select all students or (2) mark present students incorrectly marked absent?: ");
         String letterChoice = scan.nextLine();
-        if (letterChoice.equals("S")) {
+        if (letterChoice.equals("1")) {
             return markAllStudents(idToStudentMap);
         }
-        if (letterChoice.equals("A")) {
+        if (letterChoice.equals("2")) {
             return selectStudent(idToStudentMap);
         }else{
             System.out.println("That input is invalid.");
