@@ -13,7 +13,7 @@ public class YearOptions {
     static Scanner scan = new Scanner(System.in);
     
     static int userChooseYearStyle() {
-        System.out.print("Do you want to (1.) enter a year or (2.) use the current year as the default?: ");
+        System.out.print("Do you want to (1) enter a year or (2) use the current year as the default?: ");
         int numChoice = scan.nextInt();
         if (numChoice == 1) {
             return enteredYear();
