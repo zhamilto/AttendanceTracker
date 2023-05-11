@@ -13,8 +13,10 @@ public class App {
     }
 
     static void Preview(){
-        YearOptions.userChooseYearStyle();
+        DisplayCourses.displayAndChooseCourse();
+        int year = YearOptions.userChooseYearStyle();
         SemesterOptions.displaySemestersFromMap(SemesterOptions.semesters);
+
 
         int choice = SemesterOptions.promptUserforSemester(SemesterOptions.semesters);
         String enteredSemester;
@@ -26,10 +28,11 @@ public class App {
             System.out.println("Entered Semester is: " + enteredSemester);
         }
 
-        System.out.println("Loading courses for " + enteredSemester+ "...");
+        System.out.println("Loading courses for " + enteredSemester+ " " + year + "...");
 
-        CourseOptions.displayCourses(CourseOptions.courses);
-        String course = CourseOptions.selectCourse(CourseOptions.courses);
+        //CourseOptions.displayCourses(CourseOptions.courses);
+        //String course = CourseOptions.selectCourse(CourseOptions.courses);
+
 
     }
 
