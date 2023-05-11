@@ -14,9 +14,7 @@ public class FormatEmail {
     static HashMap<String,String> idToStudentMap = rosterToMap(rosterList);
     static Scanner scan = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        chooseTemplate();
-    }
+
 
     static HashMap<String,String> rosterToMap(ArrayList<Student>rosterList){
         HashMap<String,String>map = new HashMap<>();

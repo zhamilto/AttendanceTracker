@@ -11,12 +11,6 @@ public class AbsentStudent {
     static Scanner scan = new Scanner(System.in);
     static ArrayList<String>rosterList = readCSVFileIntoList("src/main/java/AttendanceTracker/roster.txt");
 
-    public static void main(String[] args) {
-        //userChooseStudentSelection();
-        //markAllStudents(idToStudentMap);
-        selectStudent(idToStudentMap);
-
-    }
 
     // allows user to choose to select all students or those marked absent incorrectly
     static public HashMap userChooseStudentSelection() {

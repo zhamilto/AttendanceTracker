@@ -5,9 +5,7 @@ import java.util.Scanner;
 
 
 public class YearOptions {
-    public static void main(String[] args) {
-        userChooseYearStyle();
-    }
+
 
 
     static Scanner scan = new Scanner(System.in);
