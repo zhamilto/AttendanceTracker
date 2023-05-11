@@ -6,12 +6,14 @@ import java.util.Scanner;
 
 public class YearOptions {
 
-
-
+    public static void main(String[] args) {
+        userChooseYearStyle();
+    }
     static Scanner scan = new Scanner(System.in);
 
+
     static int userChooseYearStyle() {
-        System.out.print("Enter 1 to input a year or press ENTER key to use the current year as the default?: ");
+        System.out.print("Press ENTER key to use the current year as the default?: ");
         String enter = scan.nextLine();
         enter = enter.trim();
         if (enter.isEmpty()) {
@@ -21,9 +23,10 @@ public class YearOptions {
                 int numChoice = Integer.parseInt(enter);
                 if (numChoice == 1) {
                     return enteredYear();
-                } else if (numChoice == 2) {
-                    return defaultYear();
-                } else {
+//                } else if (numChoice == 2) {
+//                    return defaultYear();
+                }
+                else {
                     System.out.println("Invalid input. Please enter 1 or press enter key.");
                     return userChooseYearStyle();
                 }
@@ -32,7 +35,13 @@ public class YearOptions {
                 return userChooseYearStyle();
             }
         }
-    }
+        }
+
+
+
+
+
+
 
     static int defaultYear(){
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -53,6 +62,7 @@ public class YearOptions {
             userEnteredYear = scanner.nextInt();
         } while (userEnteredYear  < 2010 || userEnteredYear > 2023);
         System.out.println("The entered year is " + userEnteredYear);
+        scanner.close();
         return userEnteredYear;
     }
 }

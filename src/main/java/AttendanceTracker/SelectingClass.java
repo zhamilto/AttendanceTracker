@@ -6,9 +6,10 @@ import java.util.Map;
 
 public class SelectingClass {
 
+    static Scanner scanner = new Scanner(System.in);
     String selectingClass(Map<String, List<String>> Map) {
         boolean check = false;
-        Scanner scanner = new Scanner(System.in);
+
         String course;
 
         System.out.println("\nPlease enter a course, section, and CRN listed above: ");
