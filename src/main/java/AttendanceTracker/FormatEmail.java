@@ -10,12 +10,13 @@ import static AttendanceTracker.AbsentStudent.selectStudent;
 
 public class FormatEmail {
 
-
     static ArrayList<Student>rosterList = readCSVFileIntoList("src/main/java/AttendanceTracker/roster.txt");
     static HashMap<String,String> idToStudentMap = rosterToMap(rosterList);
     static Scanner scan = new Scanner(System.in);
 
-
+    public static void main(String[] args) {
+        chooseTemplate();
+    }
 
     static HashMap<String,String> rosterToMap(ArrayList<Student>rosterList){
         HashMap<String,String>map = new HashMap<>();
@@ -29,12 +30,14 @@ public class FormatEmail {
     //function that allows user to choose which email template
 
     static public String chooseTemplate() {
-        System.out.print("Do you want the template for (N) card swipe not set up or (S) mark certain students?: ");
+        System.out.println("You can now select the template for the email you want to send the Registar.");
+        System.out.print("Enter 1 for the case of card swiper not set up or Enter 2 to mark students who forgot their ID?: ");
         String letterChoice = scan.nextLine();
-        if (letterChoice.equals("N")) {
+        letterChoice = letterChoice.trim();
+        if (letterChoice.equals("1")) {
             return cardSwipeCodeNotEntered();
         }
-        if (letterChoice.equals("S")) {
+        if (letterChoice.equals("2")) {
             return mistakenlyMarkedAbsentFormat();
         }else{
             System.out.println("That input is invalid.");
@@ -68,14 +71,16 @@ public class FormatEmail {
   // this is for case that student forgets their id and professor has to manually report them
     public static String mistakenlyMarkedAbsentFormat(){
         HashMap<String, String> map = selectStudent(idToStudentMap);
+        String t = "";
         String term = "Spring 2023";
         String CRN = "12345";
-        String date = "5/7";
+        String date = "5/7" + ","+ "5/9";
         ArrayList<String> idList = new ArrayList<>();
         for(String id: map.keySet()){
             idList.add(id);
         }
-        String completeFormat = "\n"+ "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ idList  + "\n" + "Dates: "+ date + "\n";
+        String text = idList.toString().replace("[", "").replace("]", "");
+        String completeFormat = "\n"+ "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+  text + "\n" + "Dates: "+ date + "\n";
         System.out.println(completeFormat);
         return completeFormat;
     }
@@ -90,9 +95,10 @@ public class FormatEmail {
         for(String id: map.keySet()){
             idList.add(id);
         }
-        String date = "5/7";
+        String text = idList.toString().replace("[", "").replace("]", "");
+        String date = "5/7" + ","+ "5/9";
         String idNumAbsent = "None";
-        String completeFormat = "\n"+ "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ idList  + "\n" + "Dates: "+ date + "\n" +"Absent Student ID: " + idNumAbsent + "\n";
+        String completeFormat = "\n"+ "Term: "+ term +"\n" + "CRN Number: " + CRN + "\n" + "Student ID: "+ text  + "\n" + "Dates: "+ date + "\n" +"Absent Student ID: " + idNumAbsent + "\n";
         System.out.println(completeFormat);
         return completeFormat;
 

@@ -11,23 +11,31 @@ public class YearOptions {
 
 
     static Scanner scan = new Scanner(System.in);
-    
+
     static int userChooseYearStyle() {
-        System.out.print("Do you want to (1) enter a year or (2) use the current year as the default?: ");
-        int numChoice = scan.nextInt();
-        if (numChoice == 1) {
-            return enteredYear();
-        }
-        if (numChoice == 2) {
+        System.out.print("Enter 1 to input a year or press ENTER key to use the current year as the default?: ");
+        String enter = scan.nextLine();
+        enter = enter.trim();
+        if (enter.isEmpty()) {
             return defaultYear();
+        } else {
+            try {
+                int numChoice = Integer.parseInt(enter);
+                if (numChoice == 1) {
+                    return enteredYear();
+                } else if (numChoice == 2) {
+                    return defaultYear();
+                } else {
+                    System.out.println("Invalid input. Please enter 1 or press enter key.");
+                    return userChooseYearStyle();
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter 1 or press enter key.");
+                return userChooseYearStyle();
+            }
         }
-        if(numChoice != 1 || numChoice != 2){
-            System.out.println("Invalid input. Please enter a year as a number.");
-            numChoice = Integer.parseInt(scan.next());
-        }
-        return 0;
     }
-    
+
     static int defaultYear(){
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         System.out.println("The current year is "+ currentYear);
@@ -50,4 +58,3 @@ public class YearOptions {
         return userEnteredYear;
     }
 }
-
