@@ -75,6 +75,7 @@ public class AbsentStudent {
             ArrayList<String> studentList = rosterList;
             ArrayList<String> markedList = new ArrayList<>();
             ArrayList<String>sList = new ArrayList<>();
+            HashSet<String> hold = new HashSet<>();
             HashMap<String,String> sMap = new HashMap<>();
             System.out.println("These students are in this class: ");
             for(String id: map.keySet()){
@@ -95,9 +96,9 @@ public class AbsentStudent {
                             id = idKey;
                             name = map.get(id);
                             sMap.put(id, name);
-                            markedList.add(student);
+                            hold.add(student);
                             studentFound = true;
-                            System.out.println("These students have now been marked as PRESENT " + markedList);
+                            System.out.println("These students have now been marked as PRESENT " + hold);
                             break;
 
                         }
@@ -107,7 +108,7 @@ public class AbsentStudent {
                     }
                 }
             }while (!student.equals("Q"));
-            System.out.println("The students you have selected are " + markedList);
+            System.out.println("The students you have selected are " + hold);
             return sMap;
         }
 
